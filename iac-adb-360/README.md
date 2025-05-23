@@ -27,11 +27,15 @@ These are the steps to install the VM:
         - create a new key
 5. Create a code tunnel on your VM and connect vscode.dev to it
 
+## Development Workstation
+As an alternative to the Virtual Machine setup, you can run bicep command to create the Azure infrastructre.  To do so, click here.
+
+As an alternative to the Virtual Machine setup, you can run bicep command to create the Azure infrastructre.  To do so, click [here](./helpers/bicep/README.md).
+
 
 Now you're ready for the next step...
 <br/>
 <br/>
-
 
 
 

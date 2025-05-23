@@ -11,7 +11,7 @@ This README provides step-by-step instructions to deploy the `re-create.bicep` a
 ## 1. Login to Azure
 
 ```sh
-az login
+az login --tenant  "<your-tenant-id>"
 ```
 
 ## 2. Set the Subscription
