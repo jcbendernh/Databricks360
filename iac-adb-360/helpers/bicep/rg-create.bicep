@@ -1,19 +1,19 @@
 targetScope='subscription'
 
 param solutionname string = 'adb360'
-param location string = 'eastus2'
+param location string 
 param serviceprincipalname string = 'devops-sc'
-param serviceprincipaloid string = '964741c1-cfc7-4c7f-b944-1f6db16d3509' //Service Principal Object ID
+param serviceprincipaloid string 
 param adbinteractprincipalname string = 'adb360-sp'
-param adbspoid string = 'dc7a057b-6335-4fac-b58a-1728c4b11e09' //Service Principal Object ID
+param adbspoid string
 param currentDate string = utcNow('yyyy-MM-ddTHH:mm:ssZ')
 
 var month = substring(currentDate, 5, 2)
-var year = substring(currentDate, 0, 4)
+var day = substring(currentDate, 8, 2)
 
-var dailysolutionname = '${solutionname}-${month}-${year}' 
-var rgDev = '${dailysolutionname}-dev'
-var rgPrd = '${dailysolutionname}-prd'
+var dailysolutionname = '${solutionname}-${month}${day}' 
+var rgDev = 'rg-${location}-${dailysolutionname}-dev'
+var rgPrd = 'rg-${location}-${dailysolutionname}-prd'
 
 resource rgDevResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgDev
