@@ -25,10 +25,10 @@ az login --tenant  "<your-tenant-id>"
 ```
 ## 2. Create two service principals in your tenant (Microsoft Entra ID)
 - service principal <b>devops-sc</b> (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
-- service principal <b>adb360-sp</b> (App Registration) used for interaction with the Azure Databricks worspace and account . 
+- service principal <b>adb360-sp</b> (App Registration) used for interaction with the Azure Databricks workspace and account . 
 
 
-## 3. Set the parameters in the azuredeploy.paramters.json file
+## 3. Set the parameters in the azuredeploy.parameters.json file
 Modifying it like the code block below.
 
 ```json
@@ -55,7 +55,7 @@ This shows a listing of US regions.
 ## 4. Deploy `rg-create.bicep`
 
 This file is used to create the required Azure resources.<BR>  
-NOTE: Please chnage location to match your location used above in the parameters file.
+NOTE: Please change location to match your location used above in the parameters file.
 
 ```sh
 az deployment sub create --location <location> --template-file rg-create.bicep --parameters @azuredeploy.parameters.json
@@ -82,7 +82,7 @@ az group show --name <resource-group-name>
 
 ```
 
-###  Check Service Principal Permissionss on the Resource Groups
+###   Check Service Principal Permissions on the Resource Groups
 
 ```sh
 az role assignment list --assignee <service-principal-object-id> --resource-group <resource-group-name> --output table
