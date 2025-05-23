@@ -21,12 +21,13 @@ This README provides step-by-step instructions to deploy the `re-create.bicep` a
 ```sh
 az login --tenant  "<your-tenant-id>"
 ```
-## 2. create two service principals in your tenant (Microsoft Entra ID)
+## 2. Create two service principals in your tenant (Microsoft Entra ID)
 - service principal <b>devops-sc</b> (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
 - service principal <b>adb360-sp</b> (App Registration) used for interaction with the Azure Databricks worspace and account . 
 
 
-## 3. Set the parameters in the azuredeploy.paramters.json file by opening it and modifying it like the code block below.
+## 3. Set the parameters in the azuredeploy.paramters.json file
+Modifying it like the code block below.
 
 ```json
     "parameters": {
@@ -49,7 +50,7 @@ az account list-locations --query "[?metadata.geographyGroup=='US'].[name, displ
 ```
 This shows a listing of US regions.
 
-## 4. Deploy `re-create.bicep`
+## 4. Deploy `rg-create.bicep`
 
 This file is used to create the required Azure resources.<BR>  
 NOTE: Please chnage location to match your location used above in the parameters file.
