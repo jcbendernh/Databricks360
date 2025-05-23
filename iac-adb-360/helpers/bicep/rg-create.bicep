@@ -11,7 +11,7 @@ param currentDate string = utcNow('yyyy-MM-ddTHH:mm:ssZ')
 var month = substring(currentDate, 5, 2)
 var day = substring(currentDate, 8, 2)
 
-var dailysolutionname = '${solutionname}-${day}${month}' 
+var dailysolutionname = '${solutionname}-${month}${day}' 
 var rgDev = 'rg-${location}-${dailysolutionname}-dev'
 var rgPrd = 'rg-${location}-${dailysolutionname}-prd'
 

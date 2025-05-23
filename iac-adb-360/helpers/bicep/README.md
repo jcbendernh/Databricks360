@@ -51,28 +51,16 @@ This shows a listing of US regions.
 
 ## 4. Deploy `re-create.bicep`
 
-This file is used to (re)create the required Azure resources.
+This file is used to create the required Azure resources.<BR>  
+NOTE: Please chnage location to match your location used above in the parameters file.
 
 ```sh
-az deployment sub create \
-    --location <location> \
-    --template-file re-create.bicep \
-    --parameters @azuredeploy.parameters.json
+az deployment sub create --location <location> --template-file rg-create.bicep --parameters @azuredeploy.parameters.json
 
 ```
 
-Replace `<location>` and `<parameters-file>.json` as needed.
-
-## 4. Deploy `role-assignment.bicep`
-
-This file assigns the necessary roles to the resources.
-
-```sh
-az deployment sub create \
-    --location <location> \
-    --template-file role-assignment.bicep \
-    --parameters <parameters-file>.json
-```
+NOTE:  Sometimes the script has to be executed twice as the 'prd' resource group is not recognized immediately.  If you get a failure similar to below.  Wait 2 minutes and try again.<br>
+*Resource group 'rg-eastus2-adb360-2305-prd' could not be found."*<br>
 
 ## 5. Verify Deployment
 
