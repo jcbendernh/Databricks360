@@ -31,6 +31,11 @@ param serviceprincipaloid string = '<devops-sc Service Principal Object ID>' //S
 param adbinteractprincipalname string = 'adb360-sp'
 param adbspoid string = '<adb360-sp Service Principal Object ID>'  //Service Principal Object ID
 ```
+For a listing of Azure Region names, you can run the following Azure CLI command:
+```sh
+az account list-locations --query "[?metadata.geographyGroup=='US'].[name, displayName, metadata.geographyGroup]" -o table   
+```
+This shows a listing of US regions.
 
 ## 3. Deploy `re-create.bicep`
 
