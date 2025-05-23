@@ -64,7 +64,18 @@ NOTE:  Sometimes the script has to be executed twice as the 'prd' resource group
 
 ## 5. Verify Deployment
 
-Check the Azure Portal or use the CLI to confirm resources and role assignments.
+Check the Azure Portal or use the CLI to confirm resources and role assignments.  Below are some CLI Samples to verify the resource groups.
+
+```sh
+az group show --name <resource-group-name>
+
+```
+By default the resource group names are as follows...
+- rg-<location>-adb360-<2 digit day value><2 digit month value>-dev
+- rg-<location>-adb360-<2 digit day value><2 digit month value>-prd
+
+For example, mine were rg-eastus2-adb360-0523-dev and rg-eastus2-adb360-0523-prd
+
 
 ---
 
