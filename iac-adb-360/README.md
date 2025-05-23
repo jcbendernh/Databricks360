@@ -72,7 +72,7 @@ This project employs a main trunk branching strategy, where you have a dev and a
 
 
 
-### Second, you need to create a two service principals in your tenant (Microsoft Entra ID) <sup>3</sup>:
+### Second, you need to create two service principals in your tenant (Microsoft Entra ID) <sup>3</sup>:
 * service principal 'devops-sc' (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
 * service principal 'adb360-sp' (App Registration) used for interaction with the Azure Databricks worspace and account (UC, more to this later). 
 

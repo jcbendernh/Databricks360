@@ -21,23 +21,35 @@ This README provides step-by-step instructions to deploy the `re-create.bicep` a
 ```sh
 az login --tenant  "<your-tenant-id>"
 ```
+## 2. create two service principals in your tenant (Microsoft Entra ID)
+- service principal <b>devops-sc</b> (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
+- service principal <b>adb360-sp</b> (App Registration) used for interaction with the Azure Databricks worspace and account . 
 
-## 2. Set the parameters in the rg-create file by opening it and modifying lines 4 through 8.
 
-```bicep
-param location string = '<your azure region>'
-param serviceprincipalname string = 'devops-sc'
-param serviceprincipaloid string = '<devops-sc Service Principal Object ID>' //Service Principal Object ID
-param adbinteractprincipalname string = 'adb360-sp'
-param adbspoid string = '<adb360-sp Service Principal Object ID>'  //Service Principal Object ID
+## 3. Set the parameters in the azuredeploy.paramters.json file by opening it and modifying it like the code block below.
+
+```json
+    "parameters": {
+        "location": {
+            "value": "<your azure region>"
+        },
+        "serviceprincipaloid": {
+            "value": "<devops-sc Service Principal Object ID>"
+        },
+        "adbspoid": {
+            "value": "<adb360-sp Service Principal Object ID>"
+        }
+
 ```
+
 For a listing of Azure Region names, you can run the following Azure CLI command:
+
 ```sh
 az account list-locations --query "[?metadata.geographyGroup=='US'].[name, displayName, metadata.geographyGroup]" -o table   
 ```
 This shows a listing of US regions.
 
-## 3. Deploy `re-create.bicep`
+## 4. Deploy `re-create.bicep`
 
 This file is used to (re)create the required Azure resources.
 
@@ -45,7 +57,8 @@ This file is used to (re)create the required Azure resources.
 az deployment sub create \
     --location <location> \
     --template-file re-create.bicep \
-    --parameters <parameters-file>.json
+    --parameters @azuredeploy.parameters.json
+
 ```
 
 Replace `<location>` and `<parameters-file>.json` as needed.
