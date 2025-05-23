@@ -47,7 +47,14 @@ Now you're ready for the next step...
 
 There is going to be some prep work to be done:
 
-Firstly, you need to fork <sup>1</sup> this repository (github.com/Azure/Databricks360) into your github organization and if you want to be able to make changes to the code, then clone <sup>2</sup> the repo locally. Change to the newly created directory, which should be something like /Databricks360. If you forked from the main branch, create a dev branch either in Github or by entering 'git checkout -b dev' at the command line. This will create a dev branch from main and check it out. By entering git push --set-updstream origin/dev you push the newly created branch onto github. It is also a good practice to set the dev branch as the default one, so that subsequent creations of new pipelines draw from dev by default.
+- Fork <sup>1</sup> this repository (github.com/Azure/Databricks360) into your GitHub organization.
+- If you want to make changes to the code, clone <sup>2</sup> the repo locally.
+- Change to the newly created directory (e.g., `/Databricks360`).
+- If you forked from the main branch, create a dev branch:
+  - In GitHub, or
+  - By entering `git checkout -b dev` at the command line (this creates and checks out the dev branch from main).
+- Push the newly created branch to GitHub with `git push --set-upstream origin dev`.
+- Set the dev branch as the default branch, so that subsequent pipeline creations use dev by default.
 
 This part, you only need, if you want to employ development via a main trunk branching strategy. It's not mandatory for setting things up. Since the dev or main branch is not protected yet, you can use the dev branch directly:
 
