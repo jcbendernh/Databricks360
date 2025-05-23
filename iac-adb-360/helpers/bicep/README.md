@@ -6,7 +6,15 @@ This README provides step-by-step instructions to deploy the `re-create.bicep` a
 
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed
 - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) installed
-- Sufficient Azure permissions to deploy resources and assign roles
+- Sufficient Azure permissions to deploy resources and assign roles. <BR>
+    To create a resource group, your account must have the following permission:
+
+    Microsoft.Resources/subscriptions/resourceGroups/write
+    This permission is included in the following built-in roles:
+    - Owner
+    - Contributor
+    - Resource Group Contributor (if scoped at the subscription level)<br>&nbsp;<br>
+    If you're using custom roles, ensure they include the above operation
 
 ## 1. Login to Azure
 
