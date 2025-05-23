@@ -106,6 +106,7 @@ style End fill:red,stroke:blue,stroke-width:3px,shadow:shadow
 The installation happens in three steps:
 
 #### 1. Resource Groups
+*skip this step if you are using the [bicep template deployment](./helpers/bicep/README.md)*<br>&nbsp;<br>
 Sometimes you do not have the subscription wide permission to install resource groups. Therefore you might get the resource groups already precreated for you. This first step/script mimics this and installs the basic infrastructure such as the Resource Groups and assigns the necessary permissions for the two service principals, you created earlier. The user, running this script, needs to have either contributor and user access admin or owner permissions on the subscription, or as mentioned before, the resource groups would have already been precreated together with the necessary permissions for the service accounts.
 
     1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
@@ -131,7 +132,6 @@ Sometimes you do not have the subscription wide permission to install resource g
 
 This concludes the preliminary configuration. From here on Azure pipelines take over.
 
-<br/>
 
 #### 2. Configure the IaC pipeline to be run from within ADO
 
