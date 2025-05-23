@@ -9,11 +9,11 @@ param adbspoid string
 param currentDate string = utcNow('yyyy-MM-ddTHH:mm:ssZ')
 
 var month = substring(currentDate, 5, 2)
-var year = substring(currentDate, 0, 4)
+var day = substring(currentDate, 8, 2)
 
-var dailysolutionname = '${solutionname}-${month}-${year}' 
-var rgDev = '${dailysolutionname}-dev'
-var rgPrd = '${dailysolutionname}-prd'
+var dailysolutionname = '${solutionname}-${day}${month}' 
+var rgDev = 'rg-${location}-${dailysolutionname}-dev'
+var rgPrd = 'rg-${location}-${dailysolutionname}-prd'
 
 resource rgDevResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgDev
