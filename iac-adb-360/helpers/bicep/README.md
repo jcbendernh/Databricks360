@@ -1,4 +1,4 @@
-# Bicep Deployment Guide
+# Bicep Deployment Instructions
 
 This README provides step-by-step instructions to deploy the `re-create.bicep` and `role-assignment.bicep` files.
 
@@ -88,3 +88,5 @@ az role assignment list --assignee <service-principal-object-id> --resource-grou
 
 - **devops-sc** SPN: **Managed Identity Operator** and **Contributor** roles.<br>
 - **adb360-sp** SPN: **Contributor** role.<br>
+
+You have completed this section and can now return to the iac-adb-360 README for [Step 1. Stanadard installtion (no SCC).](../iac-adb-360/README.md#1-standard-installation-no-scc)
