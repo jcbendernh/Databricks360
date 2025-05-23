@@ -47,6 +47,7 @@ Now you're ready for the next step...
 
 There is going to be some prep work to be done:
 
+### First, perform the following steps:
 - Fork <sup>1</sup> this repository (github.com/Azure/Databricks360) into your GitHub organization.
 - If you want to make changes to the code, clone <sup>2</sup> the repo locally.
 - Change to the newly created directory (e.g., `/Databricks360`).
@@ -71,12 +72,12 @@ This project employs a main trunk branching strategy, where you have a dev and a
 
 
 
-Secondly, you need to create a two service principals in your tenant (Microsoft Entra ID) <sup>3</sup>:
+### Second, you need to create a two service principals in your tenant (Microsoft Entra ID) <sup>3</sup>:
 * service principal 'devops-sc' (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
 * service principal 'adb360-sp' (App Registration) used for interaction with the Azure Databricks worspace and account (UC, more to this later). 
 
 
-Thirdly, we need a project in ADO (Azure DevOps) to host the deployment pipelines. <sup>4</sup> And within this project, we need three service connections :
+### Third, we need a project in ADO (Azure DevOps) to host the deployment pipelines. <sup>4</sup> And within this project, we need three service connections :
 1. service connection *ado-sc* pointing to devops-sc <sup>5</sup>
 2. service connection adb-sc pointing to adb360-sp <sup>5</sup>
 3. service connection gh-sc pointing to your Github repo <sup>6</sup>
