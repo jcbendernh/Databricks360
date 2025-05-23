@@ -76,7 +76,7 @@ By default the resource group names are as follows...
 - rg-<location>-adb360-<2 digit day value><2 digit month value>-dev
 - rg-<location>-adb360-<2 digit day value><2 digit month value>-prd
 
-For example, my resource groups were rg-eastus2-adb360-0523-dev and rg-eastus2-adb360-0523-prd
+For example, my resource groups were **rg-eastus2-adb360-0523-dev** and **rg-eastus2-adb360-0523-prd**.
 
 ###  Check Service Principal Permissionss on the Resource Groups
 
@@ -84,5 +84,5 @@ For example, my resource groups were rg-eastus2-adb360-0523-dev and rg-eastus2-a
 az role assignment list --assignee <service-principal-object-id> --resource-group <resource-group-name> --output table
 ```
 
-**devops-sc** SPN: **Managed Identity Operator** and **Contributor** roles.<br>
-**adb360-sp** SPN: **Contributor** role.<br>
+- **devops-sc** SPN: **Managed Identity Operator** and **Contributor** roles.<br>
+- **adb360-sp** SPN: **Contributor** role.<br>
