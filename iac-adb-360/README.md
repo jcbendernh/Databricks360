@@ -132,6 +132,7 @@ Sometimes you do not have the subscription wide permission to install resource g
 This concludes the preliminary configuration. From here on Azure pipelines take over.
 
 <br/>
+
 #### 2. Configure the IaC pipeline to be run from within ADO
 
 <br/>
