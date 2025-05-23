@@ -60,7 +60,7 @@ az deployment sub create --location <location> --template-file rg-create.bicep -
 ```
 
 NOTE:  Sometimes the script has to be executed twice as the 'prd' resource group is not recognized immediately.  If you get a failure similar to below.  Wait 2 minutes and try again.<br>
-*Resource group 'rg-eastus2-adb360-2305-prd' could not be found."*<br>
+*Resource group 'rg-eastus2-adb360-0523-prd' could not be found."*<br>
 
 ## 5. Verify Deployment
 
