@@ -111,17 +111,17 @@ Sometimes you do not have the subscription wide permission to install resource g
 
   1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
   
-  1.1.1. **solutionname** - a name, which qualifies your solutions. Allow it to be between 4 and 8 letters due to restrictions with Storage Account names etc. It is mainly used to uniquefy your artifacts
-  
-  1.1.2. **location** - the region/datacenter, where to install everything to
-  
-  1.1.3. **subscriptionid** - the subscription id of the subscription, you want to install into
-  
-  1.1.4. **serviceprincipalname** - the name of the service principal (app registration), you created in step 1.1
-  
-  1.1.5. **adbinteractprincipalname** - the name of the service principal, that is going to be used to interact with the Databricks workspace
-  
-  1.1.6. **locationshortname** - an abbreviation for your datacenter/region. p.ex. wus2 for westus3, eus for eastus etc. This is to help keep your resource names short.
+    1.1.1. **solutionname** - a name, which qualifies your solutions. Allow it to be between 4 and 8 letters due to restrictions with Storage Account names etc. It is mainly used to uniquefy your artifacts
+    
+    1.1.2. **location** - the region/datacenter, where to install everything to
+    
+    1.1.3. **subscriptionid** - the subscription id of the subscription, you want to install into
+    
+    1.1.4. **serviceprincipalname** - the name of the service principal (app registration), you created in step 1.1
+    
+    1.1.5. **adbinteractprincipalname** - the name of the service principal, that is going to be used to interact with the Databricks workspace
+    
+    1.1.6. **locationshortname** - an abbreviation for your datacenter/region. p.ex. wus2 for westus3, eus for eastus etc. This is to help keep your resource names short.
 
   1.2. Run the script rg-create.sh from the command line p.ex 'bash ./iac-adb-360/helpers/rg-create.sh'. Make sure, you're already logged into your subscription. <sup>7</sup>
 
