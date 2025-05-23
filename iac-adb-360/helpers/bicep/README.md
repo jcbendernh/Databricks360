@@ -22,10 +22,14 @@ This README provides step-by-step instructions to deploy the `re-create.bicep` a
 az login --tenant  "<your-tenant-id>"
 ```
 
-## 2. Set the Subscription
+## 2. Set the parameters in the rg-create file by opening it and modifying lines 4 through 8.
 
-```sh
-az account set --subscription "<your-subscription-id>"
+```bicep
+param location string = '<your azure region>'
+param serviceprincipalname string = 'devops-sc'
+param serviceprincipaloid string = '<devops-sc Service Principal Object ID>' //Service Principal Object ID
+param adbinteractprincipalname string = 'adb360-sp'
+param adbspoid string = '<adb360-sp Service Principal Object ID>'  //Service Principal Object ID
 ```
 
 ## 3. Deploy `re-create.bicep`
