@@ -1,5 +1,5 @@
 
-> Note: Throughout the following readme, you'll find superscripts like <sup>1</sup>, which refer to a walkthrough number in the folder /walkthroughs. So for examples the superscript <sup>1</sup> would refer to /walkthroughs/01_create a forek.
+> Note: Throughout the following readme, you'll find superscripts like <sup>1</sup>, which refer to a walkthrough number in the folder /walkthroughs. So for examples the superscript <sup>1</sup> would refer to /walkthroughs/01_create a fork.
 
 # 0. Preparation Work
 
@@ -28,7 +28,7 @@ These are the steps to install the VM:
 5. Create a code tunnel on your VM and connect vscode.dev to it
 
 ## Bicep Deployment
-As an alternative to the Virtual Machine setup, you can run bicep command to create the Azure infrastructre.  To review these steps, click [here](./helpers/bicep/README.md).
+As an alternative to the Virtual Machine setup, you can run bicep command to create the Azure infrastructure.  To review these steps, click [here](./helpers/bicep/README.md).
 
 
 Now you're ready for the next step...
@@ -74,7 +74,7 @@ This project employs a main trunk branching strategy, where you have a dev and a
 
 ### Second, you need to create two service principals in your tenant (Microsoft Entra ID) <sup>3</sup>:
 * service principal 'devops-sc' (App Registration) used for the service connection in Azure Devops (ADO), which serves as the security context for the devops agent, running your pipelines
-* service principal 'adb360-sp' (App Registration) used for interaction with the Azure Databricks worspace and account (UC, more to this later). 
+* service principal 'adb360-sp' (App Registration) used for interaction with the Azure Databricks workspace and account (UC, more to this later). 
 
 
 ### Third, we need a project in ADO (Azure DevOps) to host the deployment pipelines. <sup>4</sup> And within this project, we need three service connections :
@@ -92,13 +92,13 @@ flowchart TD
 Start --> 1-ResourceGroups
 style Start fill:red,stroke:blue,stroke-width:3px,shadow:shadow
 1-ResourceGroups --> 2-IACPipeline
-style 1-ResourceGroups fill:darkgray,stroke:blue,stroke-witdth:3px,shadow:shadow,color:#0000aa
+style 1-ResourceGroups fill:darkgray,stroke:blue,stroke-width:3px,shadow:shadow,color:#0000aa
 2-IaCPipeline --> Metastore
-style 2-IACPipeline fill:darkgray,stroke:blue,stroke-witdth:3px,shadow:shadow,color:#0000aa
+style 2-IACPipeline fill:darkgray,stroke:blue,stroke-width:3px,shadow:shadow,color:#0000aa
 Metastore --> 3-Post-Metastore-Combined
-style Metastore fill:lightgreen,stroke:blue,stroke-witdth:3px,shadow:shadow,color:#0000aa
+style Metastore fill:lightgreen,stroke:blue,stroke-width:3px,shadow:shadow,color:#0000aa
 3-Post-Metastore-Combined --> End
-style 3-Post-Metastore-Combined fill:darkgray,stroke:blue,stroke-witdth:3px,shadow:shadow,color:#0000aa
+style 3-Post-Metastore-Combined fill:darkgray,stroke:blue,stroke-width:3px,shadow:shadow,color:#0000aa
 style End fill:red,stroke:blue,stroke-width:3px,shadow:shadow
 
 ```
@@ -107,7 +107,7 @@ The installation happens in three steps:
 
 #### 1. Resource Groups
 *skip this step if you are using the [bicep template deployment](./helpers/bicep/README.md)*<br>&nbsp;<br>
-Sometimes you do not have the subscription wide permission to install resource groups. Therefore you might get the resource groups already precreated for you. This first step/script mimics this and installs the basic infrastructure such as the Resource Groups and assigns the necessary permissions for the two service principals, you created earlier. The user, running this script, needs to have either contributor and user access admin or owner permissions on the subscription, or as mentioned before, the resource groups would have already been precreated together with the necessary permissions for the service accounts.
+Sometimes you do not have the subscription wide permission to install resource groups. Therefore you might get the resource groups already pre-created for you. This first step/script mimics this and installs the basic infrastructure such as the Resource Groups and assigns the necessary permissions for the two service principals, you created earlier. The user, running this script, needs to have either contributor and user access admin or owner permissions on the subscription, or as mentioned before, the resource groups would have already been pr-created together with the necessary permissions for the service accounts.
 
   1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
   
@@ -141,7 +141,7 @@ This concludes the preliminary configuration. From here on Azure pipelines take 
 
 <br/>
 
-In Azure Devops (ADO), you need a project, usually under an organization, to configure and run the necessary pipelines. So from here it is assumed, that an organization and project exists in ADO and you navigated to it with your browswer.
+In Azure Devops (ADO), you need a project, usually under an organization, to configure and run the necessary pipelines. So from here it is assumed, that an organization and project exists in ADO and you navigated to it with your browser.
 
 
 2.1.1. configure the service connections <sup>5</sup> in the ADO project via Project Settings/Service Connection to be using the app registration/service principal from 1.1 (devops-sc) and also the adb interaction sp (adb360-sp). Name them ado-sc and adb-sc. Also create a third service connection to github (where you're repo is located) with a github token and named gh-sc. You have now three service connections in ADO:
@@ -160,7 +160,7 @@ In Azure Devops (ADO), you need a project, usually under an organization, to con
 
 
 
->If you run the pipeline for the first time, you might have to give it permission to run in the dev environment. Just watch out on the pipeline run and give the permission if asked to. You only need to do this once. The mentioned environment is an environment in ADO (under pipelines/Environments). We need two: dev and prd. If you want, you can assign security as needed. It is good to precreate these environments and assign permission to the pipelines by clicking on the environemnt/Security and under Pipeline permissions you either click + for adding the pipelines of the triple dots for open access to all pipelines.
+>If you run the pipeline for the first time, you might have to give it permission to run in the dev environment. Just watch out on the pipeline run and give the permission if asked to. You only need to do this once. The mentioned environment is an environment in ADO (under pipelines/Environments). We need two: dev and prd. If you want, you can assign security as needed. It is good to pre-create these environments and assign permission to the pipelines by clicking on the environment/Security and under Pipeline permissions you either click + for adding the pipelines of the triple dots for open access to all pipelines.
 
 2.2. run the pipeline
 
@@ -181,7 +181,7 @@ IaC Pipeline Result in Azure:
 
 > **Metastore** <br/>
 Since there can only be one metastore per region and a user with GlobalAdmin role in the hosting tenant is needed to initialize a metastore, we assume, that a metastore has already been created or is being created centrally within the organization. In fact, since November 2023, if you create a new Databricks workspace and you hadn't used Unity Catalog so far, a metastore is automatically created in the respective region and the workspace is assigned to it.
-We also need to make sure, that preferrably, a group something like 'uc-metastore-owners' (name doesn't matter) had been created, which should contain the adb interaction service principal from 1.1, that interacts with Databricks ('adb360-sp'). In order to do that, create the group, add the service principal to the 'service principals' in accounts/users and add the service principal to the group. Also make sure, that the metastore owner (globaladmin) is a member of this group. Then make this group the Metastore Admins by navigating to Catalog->Workspace->Configuration. This group will be from then on the admin group for the metastore. Also for the dev catalog, and later for the prd catalog, which are going to be created by pipelines later, add a group devcat-admins and prdcat-admins, which are going to hold the admins for the dev catalog and the prd catalog. These groups need to preexist, since they are going to be granted some permissions by the various pipelines. <br/>
+We also need to make sure, that preferably, a group something like 'uc-metastore-owners' (name doesn't matter) had been created, which should contain the adb interaction service principal from 1.1, that interacts with Databricks ('adb360-sp'). In order to do that, create the group, add the service principal to the 'service principals' in accounts/users and add the service principal to the group. Also make sure, that the metastore owner (globaladmin) is a member of this group. Then make this group the Metastore Admins by navigating to Catalog->Workspace->Configuration. This group will be from then on the admin group for the metastore. Also for the dev catalog, and later for the prd catalog, which are going to be created by pipelines later, add a group devcat-admins and prdcat-admins, which are going to hold the admins for the dev catalog and the prd catalog. These groups need to preexist, since they are going to be granted some permissions by the various pipelines. <br/>
 In addition the Databricks interaction account needs to be account admin. (set this in accounts-service principals-service principal account admin). Like this, you have delegated management of the metastore to the group containing the globaladmin and the Databricks interaction service account (adb360-sp). Earlier in the process, the script which created the Resource Groups (rg-create.sh), should have added the service principal for Adb interaction as Contributor to the Resource Groups.
 After verification, that these groups/permissions/role assignments are in place, you can continue with the next step. <p/>
 Now the metastore should exist in the region and is fully configured to be able to continue.
