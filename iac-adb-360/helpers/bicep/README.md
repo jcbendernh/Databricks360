@@ -1,6 +1,8 @@
 # Bicep Deployment Instructions
 
-This README provides step-by-step instructions to deploy the `re-create.bicep` and `role-assignment.bicep` files.
+This README provides step-by-step instructions to deploy the `rg-create.bicep` and `role-assignment.bicep` files with the azuredeploy.paramaters.json file.
+
+You will need to clone this repo to your local machine.  Steps for the are detailed in the first two bullets of the **iac-adb-360 README** [Step 1. Standard installation (no SCC).](../../README.md#1-standard-installation-no-scc) section.
 
 ## Prerequisites
 
