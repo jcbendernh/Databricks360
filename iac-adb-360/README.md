@@ -109,21 +109,21 @@ The installation happens in three steps:
 *skip this step if you are using the [bicep template deployment](./helpers/bicep/README.md)*<br>&nbsp;<br>
 Sometimes you do not have the subscription wide permission to install resource groups. Therefore you might get the resource groups already precreated for you. This first step/script mimics this and installs the basic infrastructure such as the Resource Groups and assigns the necessary permissions for the two service principals, you created earlier. The user, running this script, needs to have either contributor and user access admin or owner permissions on the subscription, or as mentioned before, the resource groups would have already been precreated together with the necessary permissions for the service accounts.
 
-    1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
-   
-    1.1.1. **solutionname** - a name, which qualifies your solutions. Allow it to be between 4 and 8 letters due to restrictions with Storage Account names etc. It is mainly used to uniquefy your artifacts
-    
-    1.1.2. **location** - the region/datacenter, where to install everything to
-   
-    1.1.3. **subscriptionid** - the subscription id of the subscription, you want to install into
-   
-    1.1.4. **serviceprincipalname** - the name of the service principal (app registration), you created in step 1.1
-   
-    1.1.5. **adbinteractprincipalname** - the name of the service principal, that is going to be used to interact with the Databricks workspace
-   
-    1.1.6. **locationshortname** - an abbreviation for your datacenter/region. p.ex. wus2 for westus3, eus for eastus etc. This is to help keep your resource names short.
+  1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
+  
+  1.1.1. **solutionname** - a name, which qualifies your solutions. Allow it to be between 4 and 8 letters due to restrictions with Storage Account names etc. It is mainly used to uniquefy your artifacts
+  
+  1.1.2. **location** - the region/datacenter, where to install everything to
+  
+  1.1.3. **subscriptionid** - the subscription id of the subscription, you want to install into
+  
+  1.1.4. **serviceprincipalname** - the name of the service principal (app registration), you created in step 1.1
+  
+  1.1.5. **adbinteractprincipalname** - the name of the service principal, that is going to be used to interact with the Databricks workspace
+  
+  1.1.6. **locationshortname** - an abbreviation for your datacenter/region. p.ex. wus2 for westus3, eus for eastus etc. This is to help keep your resource names short.
 
-    1.2. Run the script rg-create.sh from the command line p.ex 'bash ./iac-adb-360/helpers/rg-create.sh'. Make sure, you're already logged into your subscription. <sup>7</sup>
+  1.2. Run the script rg-create.sh from the command line p.ex 'bash ./iac-adb-360/helpers/rg-create.sh'. Make sure, you're already logged into your subscription. <sup>7</sup>
 
 > What the script does: <br/>
   The script takes the solution name (provided earlier) and adds the date in the form 'mmdd' as well as rg- as prefix and -dev and -prd as suffix. These names are then used to generate the resource group names for the two resource groups dev and prd. After checking, that resource groups with the same names don't already exist, the resource groups are created as well as the two role assignments for the service connection: Contributor and User Access Administrator for the ADO ('devops-sc'). The Databricks interaction service principal (adb360-sp) will have to have just Contributor permissions assigned to it.
