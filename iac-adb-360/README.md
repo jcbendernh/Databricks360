@@ -105,7 +105,7 @@ style End fill:red,stroke:blue,stroke-width:3px,shadow:shadow
 
 The installation happens in three steps:
 
-#### 1. Resource Groups** 
+#### 1. Resource Groups
 Sometimes you do not have the subscription wide permission to install resource groups. Therefore you might get the resource groups already precreated for you. This first step/script mimics this and installs the basic infrastructure such as the Resource Groups and assigns the necessary permissions for the two service principals, you created earlier. The user, running this script, needs to have either contributor and user access admin or owner permissions on the subscription, or as mentioned before, the resource groups would have already been precreated together with the necessary permissions for the service accounts.
 
     1.1. before running the script (/iac-adb-360/helpers/rg-create.sh), make sure to open the script in an editor and edit the values for the following:
@@ -126,9 +126,8 @@ Sometimes you do not have the subscription wide permission to install resource g
 
 > What the script does: <br/>
   The script takes the solution name (provided earlier) and adds the date in the form 'mmdd' as well as rg- as prefix and -dev and -prd as suffix. These names are then used to generate the resource group names for the two resource groups dev and prd. After checking, that resource groups with the same names don't already exist, the resource groups are created as well as the two role assignments for the service connection: Contributor and User Access Administrator for the ADO ('devops-sc'). The Databricks interaction service principal (adb360-sp) will have to have just Contributor permissions assigned to it.
-  <br/>
-  Result:
-  ![Resource Groups](/imagery/resourcegroups.png)
+  <br/>&nbsp;<br>
+  Result:![Resource Groups](/imagery/resourcegroups.png)
 
 This concludes the preliminary configuration. From here on Azure pipelines take over.
 
