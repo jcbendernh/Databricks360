@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus2"
+        },
+        "serviceprincipaloid": {
+            "value": "964741c1-cfc7-4c7f-b944-1f6db16d3509"
+        },
+        "adbspoid": {
+            "value": "dc7a057b-6335-4fac-b58a-1728c4b11e09"
+        }
+    }
+}
