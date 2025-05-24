@@ -1,6 +1,6 @@
 variables:
   baseName: adb3600614
   env: dev
-  resourcegroup: adb360-05-2025-dev
+  resourcegroup: rg-eastus2-adb360-0523-dev
   location: eastus2
 
