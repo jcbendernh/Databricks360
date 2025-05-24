@@ -58,7 +58,7 @@ This file is used to create the required Azure resources.<BR>
 NOTE: Please change location to match your location used above in the parameters file.
 
 ```sh
-az deployment sub create --location <location> --template-file rg-create.bicep --parameters @azuredeploy.parameters.json
+az deployment sub create --location <location> --template-file rg-create.bicep --parameters azuredeploy.parameters.json
 
 ```
 

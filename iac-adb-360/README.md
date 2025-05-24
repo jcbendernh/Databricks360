@@ -180,12 +180,23 @@ IaC Pipeline Result in Azure:
 <br/>
 
 > **Metastore** <br/>
-Since there can only be one metastore per region and a user with GlobalAdmin role in the hosting tenant is needed to initialize a metastore, we assume, that a metastore has already been created or is being created centrally within the organization. In fact, since November 2023, if you create a new Databricks workspace and you hadn't used Unity Catalog so far, a metastore is automatically created in the respective region and the workspace is assigned to it.
-We also need to make sure, that preferably, a group something like 'uc-metastore-owners' (name doesn't matter) had been created, which should contain the adb interaction service principal from 1.1, that interacts with Databricks ('adb360-sp'). In order to do that, create the group, add the service principal to the 'service principals' in accounts/users and add the service principal to the group. Also make sure, that the metastore owner (globaladmin) is a member of this group. Then make this group the Metastore Admins by navigating to Catalog->Workspace->Configuration. This group will be from then on the admin group for the metastore. Also for the dev catalog, and later for the prd catalog, which are going to be created by pipelines later, add a group devcat-admins and prdcat-admins, which are going to hold the admins for the dev catalog and the prd catalog. These groups need to preexist, since they are going to be granted some permissions by the various pipelines. <br/>
-In addition the Databricks interaction account needs to be account admin. (set this in accounts-service principals-service principal account admin). Like this, you have delegated management of the metastore to the group containing the globaladmin and the Databricks interaction service account (adb360-sp). Earlier in the process, the script which created the Resource Groups (rg-create.sh), should have added the service principal for Adb interaction as Contributor to the Resource Groups.
-After verification, that these groups/permissions/role assignments are in place, you can continue with the next step. <p/>
-Now the metastore should exist in the region and is fully configured to be able to continue.
-If you need to install all the metastore etc. let yourself be helped by this walkthrough <sup>8</sup>
+- There can only be one metastore per region, and a user with the GlobalAdmin role in the hosting tenant is needed to initialize a metastore.
+- It is assumed that a metastore has already been created or is being created centrally within the organization.
+- Since November 2023, if you create a new Databricks workspace and have not used Unity Catalog before, a metastore is automatically created in the respective region and the workspace is assigned to it.
+- Ensure that a group (e.g., 'uc-metastore-owners') has been created, which should contain the adb interaction service principal from 1.1 ('adb360-sp').
+- To do this:
+  - Create the group.
+  - Add the service principal to the 'service principals' in accounts/users.
+  - Add the service principal to the group.
+  - Ensure the metastore owner (globaladmin) is a member of this group.
+- Make this group the Metastore Admins by navigating to Catalog -> Workspace -> Configuration. This group will be the admin group for the metastore.
+- For the dev catalog and later for the prd catalog (created by pipelines), add groups 'devcat-admins' and 'prdcat-admins' to hold the admins for each catalog. These groups must preexist, as they will be granted permissions by various pipelines.
+- The Databricks interaction account also needs to be account admin (set this in accounts -> service principals -> service principal account admin).
+- This setup delegates management of the metastore to the group containing the globaladmin and the Databricks interaction service account ('adb360-sp').
+- Earlier, the script that created the Resource Groups (rg-create.sh) should have added the service principal for Databricks interaction as Contributor to the Resource Groups.
+- After verifying that these groups, permissions, and role assignments are in place, you can continue with the next step.
+- Now the metastore should exist in the region and be fully configured to continue.
+- If you need to install the metastore, refer to the walkthrough <sup>8</sup>.
 
 <br/>
 
