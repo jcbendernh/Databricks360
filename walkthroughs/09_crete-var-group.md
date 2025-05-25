@@ -11,7 +11,7 @@
     * clientsecret: secret for appid (click on the Lock symbol to the right to change to a variable type secret)
     * clusterconf: the json file name, which contains the clusterconfiguration being used (usually sharedcluster)
     * meatstorename: the name of the metastore (p.ex. metawus3)
-    * reporurl: the url to the github repo (p.ex. https://github.com/*yourorg*/Databricks360.git)
+    * repourl: the url to the github repo (p.ex. https://github.com/*yourorg*/Databricks360.git)
     * credname: the name of the credential used for the bronze external location (p.ex. devcreds)
     * env: the environment (p.ex. dev)
     * bronzestorageaccountname: the storage account name for the storage account for the bronze volume (the storage account anme in the dev resource group starting with dlg2devwestus3adb360...)
