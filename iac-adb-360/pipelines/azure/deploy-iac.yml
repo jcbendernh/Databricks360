@@ -55,8 +55,8 @@ stages:
     displayName: Deploy Stage
     jobs:
       - deployment: DeployJob
-        displayName: Deploy to dev environment
-        environment: dev
+        displayName: Deploy to prd environment
+        environment: prd
         strategy:
           runOnce:
             deploy:
