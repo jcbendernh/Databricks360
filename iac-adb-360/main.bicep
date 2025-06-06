@@ -1,5 +1,5 @@
 param baseName string
-param env string = 'dev'
+param env string = 'prd'
 param location string = resourceGroup().location
 
 
