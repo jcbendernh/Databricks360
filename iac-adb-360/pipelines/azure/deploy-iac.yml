@@ -3,7 +3,7 @@ name: Deploy-IAC
 trigger:
   branches:
     include:
-      - dev
+      - prd
   paths:
     exclude:
       - '*'
@@ -11,7 +11,7 @@ trigger:
 pr:
   branches:
     include:
-      - dev
+      - prd
 
 variables:
   - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}: 
@@ -55,8 +55,8 @@ stages:
     displayName: Deploy Stage
     jobs:
       - deployment: DeployJob
-        displayName: Deploy to dev environment
-        environment: dev
+        displayName: Deploy to prd environment
+        environment: prd
         strategy:
           runOnce:
             deploy:

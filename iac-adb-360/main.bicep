@@ -1,5 +1,5 @@
 param baseName string
-param env string = 'dev'
+param env string = 'prd'
 param location string = resourceGroup().location
 
 
@@ -32,8 +32,8 @@ module uami 'bmain-modules/accon.bicep' = {
 }
 
 
-module dlg2 'bmain-modules/dlg2.bicep'={
-  name: 'dlg2'
+module dlg3 'bmain-modules/dlg3.bicep'={
+  name: 'dlg3'
   params: {
     baseName: baseName 
     env: env
